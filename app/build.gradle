@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 26
     defaultConfig {
-        applicationId "eos.russianodeio.app"
+        applicationId "com.bosstoken.wallet"
         minSdkVersion 16
         targetSdkVersion 26
         versionCode 2

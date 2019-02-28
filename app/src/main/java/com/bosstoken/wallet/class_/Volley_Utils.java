@@ -1,4 +1,4 @@
-package eos.russianodeio.app.class_;
+package com.bosstoken.wallet.class_;
 
 import android.content.Context;
 
@@ -8,7 +8,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import eos.russianodeio.app.Interface.Interface_volley_respose;
+import com.bosstoken.wallet.Interface.Interface_volley_respose;
 
 import java.util.Map;
 

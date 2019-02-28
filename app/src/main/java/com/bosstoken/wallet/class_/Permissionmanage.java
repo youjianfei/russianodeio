@@ -1,6 +1,6 @@
-package eos.russianodeio.app.class_;
+package com.bosstoken.wallet.class_;
 
-import eos.russianodeio.app.Interface.InterfacePermission;
+import com.bosstoken.wallet.Interface.InterfacePermission;
 import com.master.permissionhelper.PermissionHelper;
 
 public class Permissionmanage {

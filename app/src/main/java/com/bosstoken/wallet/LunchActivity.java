@@ -1,4 +1,4 @@
-package eos.russianodeio.app;
+package com.bosstoken.wallet;
 
 import android.app.Activity;
 import android.content.Intent;

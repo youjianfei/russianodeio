@@ -1,4 +1,4 @@
-package eos.russianodeio.app.class_;
+package com.bosstoken.wallet.class_;
 
 import android.util.Log;
 

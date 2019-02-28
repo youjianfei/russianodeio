@@ -1,4 +1,4 @@
-package eos.russianodeio.app;
+package com.bosstoken.wallet;
 
 
 import android.Manifest;
@@ -15,6 +15,7 @@ import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
+import android.webkit.JavascriptInterface;
 import android.webkit.JsResult;
 import android.webkit.SslErrorHandler;
 import android.webkit.ValueCallback;
@@ -28,19 +29,20 @@ import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import eos.russianodeio.app.Interface.InterfacePermission;
+import com.bosstoken.wallet.Interface.InterfacePermission;
 
 
-import eos.russianodeio.app.class_.AutoUpdate;
-import eos.russianodeio.app.class_.LogUtils;
-import eos.russianodeio.app.class_.Permissionmanage;
-import eos.russianodeio.app.class_.ToastUtils;
+import com.bosstoken.wallet.class_.AutoUpdate;
+import com.bosstoken.wallet.class_.LogUtils;
+import com.bosstoken.wallet.class_.Permissionmanage;
+import com.bosstoken.wallet.class_.ToastUtils;
 
 import com.jaeger.library.StatusBarUtil;
 import com.master.permissionhelper.PermissionHelper;
 import com.yzq.zxinglibrary.android.CaptureActivity;
+import com.yzq.zxinglibrary.common.Constant;
 
-import static eos.russianodeio.app.EntityBean.URls.Index;
+import static com.bosstoken.wallet.EntityBean.URls.Index;
 
 public class MainActivity extends Activity {
     //控件
@@ -109,6 +111,8 @@ public class MainActivity extends Activity {
         final String url = index;
 //        final String url = "file:///android_asset/text.html";
 
+
+        webView.addJavascriptInterface(new Saoyisao_interface(), "agent");//将webview与H5通过接口连接
         webView.loadUrl(url);
         webView.setWebViewClient(new WebViewClient(){
             @Override
@@ -328,11 +332,12 @@ public class MainActivity extends Activity {
         // 扫描二维码/条码回传
         if (requestCode == 111 && resultCode == RESULT_OK) {
             if (data != null) {
-//                String content = data.getStringExtra(Constant.CODED_CONTENT);
+                String content = data.getStringExtra(Constant.CODED_CONTENT);
 //                erweima=erweima+content;
-//                if(content!=null||!content.equals("")){
-//                    show();
-//                }
+                if(content!=null||!content.equals("")){
+                   ToastUtils.showToast(MainActivity.this,content);
+                    webView.loadUrl("javascript:reloadCode('"+content+"')");
+                }
 
             }
         }
@@ -342,6 +347,19 @@ public class MainActivity extends Activity {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (permissionHelper != null) {
             permissionHelper.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+    }
+
+
+
+    public class Saoyisao_interface {
+        @JavascriptInterface
+        public void scanner() {
+            erweima();
+//            ToastUtils.showToast(MainActivity.this,"sdfdsf");
+
+
+
         }
     }
 

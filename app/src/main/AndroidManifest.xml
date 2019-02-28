@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="eos.russianodeio.app">
+    package="com.bosstoken.wallet">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
@@ -23,7 +23,7 @@
         android:theme="@style/AppTheme">
         <provider
             android:name="android.support.v4.content.FileProvider"
-            android:authorities="com.russianodeio.app.FileProvider"
+            android:authorities="com.bosstoken.wallet.FileProvider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
@@ -31,15 +31,15 @@
                 android:resource="@xml/file_paths" />
         </provider>
 
-        <activity android:name="eos.russianodeio.app.MainActivity"></activity>
-        <activity android:name="eos.russianodeio.app.LunchActivity">
+        <activity android:name="com.bosstoken.wallet.MainActivity"></activity>
+        <activity android:name="com.bosstoken.wallet.LunchActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="eos.russianodeio.app.KongActivity"
+        <activity android:name="com.bosstoken.wallet.KongActivity"
             android:launchMode="singleTask"></activity>
     </application>
 

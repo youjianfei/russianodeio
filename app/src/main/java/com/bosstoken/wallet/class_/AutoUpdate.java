@@ -1,4 +1,4 @@
-package eos.russianodeio.app.class_;
+package com.bosstoken.wallet.class_;
 
 import android.Manifest;
 import android.app.Activity;
@@ -16,8 +16,8 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.FileProvider;
 
-import eos.russianodeio.app.EntityBean.UpdataBean;
-import eos.russianodeio.app.Interface.Interface_volley_respose;
+import com.bosstoken.wallet.EntityBean.UpdataBean;
+import com.bosstoken.wallet.Interface.Interface_volley_respose;
 import com.google.gson.Gson;
 
 import java.io.File;
@@ -28,7 +28,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import static eos.russianodeio.app.EntityBean.URls.updateURl;
+import static com.bosstoken.wallet.EntityBean.URls.updateURl;
 
 /**
  * Created by Administrator on 2017/8/7.
@@ -253,7 +253,7 @@ public class AutoUpdate {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            Uri contentUri = FileProvider.getUriForFile(activity, "com.russianodeio.app.FileProvider", newFile);
+            Uri contentUri = FileProvider.getUriForFile(activity, "com.bosstoken.wallet.FileProvider", newFile);
             intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
             intent.setDataAndType(contentUri, "application/vnd.android.package-archive");
 

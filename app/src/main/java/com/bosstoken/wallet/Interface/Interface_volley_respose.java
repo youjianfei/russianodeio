@@ -1,4 +1,4 @@
-package eos.russianodeio.app.Interface;
+package com.bosstoken.wallet.Interface;
 
 /**
  * Created by PC on 2017/1/9.

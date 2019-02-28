@@ -1,4 +1,4 @@
-package eos.russianodeio.app.EntityBean;
+package com.bosstoken.wallet.EntityBean;
 
 /**
  * Created by 飞 on 2018/5/6.
