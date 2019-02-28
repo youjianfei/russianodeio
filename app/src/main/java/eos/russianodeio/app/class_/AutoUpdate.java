@@ -28,6 +28,8 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import static eos.russianodeio.app.EntityBean.URls.updateURl;
+
 /**
  * Created by Administrator on 2017/8/7.
  */
@@ -116,7 +118,7 @@ public class AutoUpdate {
             public void onError(int error) {
                 LogUtils.LOG("ceshi","c错误码"+error,"updataapp");
             }
-        }).Http("https://russianode.io/api/index/update", activity, 0);
+        }).Http(updateURl, activity, 0);
     }
     /**
      * 得到当前版本号

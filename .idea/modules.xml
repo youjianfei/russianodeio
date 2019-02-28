@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Russianodeio_.iml" filepath="$PROJECT_DIR$/Russianodeio_.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://D:\MYwork\Russianodeio_\app\app.iml" filepath="D:\MYwork\Russianodeio_\app\app.iml" />
       <module fileurl="file://D:\MYwork\Russianodeio_\russianodeio.iml" filepath="D:\MYwork\Russianodeio_\russianodeio.iml" />
     </modules>
   </component>

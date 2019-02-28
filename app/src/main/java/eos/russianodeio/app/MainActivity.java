@@ -40,6 +40,8 @@ import com.jaeger.library.StatusBarUtil;
 import com.master.permissionhelper.PermissionHelper;
 import com.yzq.zxinglibrary.android.CaptureActivity;
 
+import static eos.russianodeio.app.EntityBean.URls.Index;
+
 public class MainActivity extends Activity {
     //控件
     private WebView webView;
@@ -51,7 +53,7 @@ public class MainActivity extends Activity {
 
     //URL
 //    String  index="http://www.eoskoreanode.com/t.html";//测试不信任证书 404  500等
-    String  index="https://russianode.io/app/";
+    String  index=Index;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
