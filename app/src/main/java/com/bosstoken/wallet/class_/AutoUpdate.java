@@ -17,6 +17,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.content.FileProvider;
 
 import com.bosstoken.wallet.EntityBean.UpdataBean;
+import com.bosstoken.wallet.Interface.InterfaceWeburl;
 import com.bosstoken.wallet.Interface.Interface_volley_respose;
 import com.google.gson.Gson;
 
@@ -28,20 +29,22 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import static com.bosstoken.wallet.EntityBean.URls.updateURl;
+import static com.bosstoken.wallet.EntityBean.URls.Index;
 
 /**
  * Created by Administrator on 2017/8/7.
  */
 
 public class AutoUpdate {
+    InterfaceWeburl interfaceWeburl;
 
     private ProgressDialog mProgress;
     private int progress; //apk下载的进度
     private Activity activity;
 
-    public AutoUpdate(Activity activity) {
+    public AutoUpdate(Activity activity,InterfaceWeburl interfaceWeburl) {
         this.activity = activity;
+        this.interfaceWeburl=interfaceWeburl;
     }
 
     /**
@@ -86,15 +89,18 @@ public class AutoUpdate {
      * 联网查询版本
      */
     String newdownurl = "";//下载apk网址
+    String  type="";
+    String  weburl="";
     public  void requestVersionData() {
 
         new Volley_Utils(new Interface_volley_respose() {
             @Override
             public void onSuccesses(String respose) {
-
+                LogUtils.LOG("ceshi", "json::"+respose,"updataapp");
                     checkVistionBean=new Gson().fromJson(respose,UpdataBean.class);
-                    newdownurl = checkVistionBean.getUrl();//下载新版本的网址
-                    int newVersion = (Integer) checkVistionBean.getVersion();//新的版本号
+                    type=checkVistionBean.getAndroid().getType();
+                newdownurl = checkVistionBean.getAndroid().getApp_url();//下载新版本的网址
+                    int newVersion = (Integer) checkVistionBean.getAndroid().getVersion();//新的版本号
                     LogUtils.LOG("ceshi","联网查询的版本号是"+newVersion+"地址"+newdownurl,"updataapp");
                     int curVersionCode = getVersionInfo();
                     if (curVersionCode == Integer.MAX_VALUE) {
@@ -108,6 +114,8 @@ public class AutoUpdate {
                             showUpdateDialog(newVersion, newdownurl);
 
                         } else {//没有新版本
+                            weburl=checkVistionBean.getAndroid().getWeb_view();
+                            interfaceWeburl.onResult(weburl);
                             return;
                         }
                     }
@@ -118,7 +126,7 @@ public class AutoUpdate {
             public void onError(int error) {
                 LogUtils.LOG("ceshi","c错误码"+error,"updataapp");
             }
-        }).Http(updateURl, activity, 0);
+        }).Http(Index, activity, 0);
     }
     /**
      * 得到当前版本号

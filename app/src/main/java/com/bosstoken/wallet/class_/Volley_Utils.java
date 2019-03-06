@@ -39,6 +39,7 @@ public class Volley_Utils {
 
     public void Http(String URL, Context mContext, int Method) {
         mQueue = Volley.newRequestQueue(mContext);
+        FakeX509TrustManager.allowAllSSL();//绕过证书检测
         mStringRequest = new StringRequest(Method, URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {

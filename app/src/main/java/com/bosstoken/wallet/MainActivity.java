@@ -32,6 +32,7 @@ import android.widget.Toast;
 import com.bosstoken.wallet.Interface.InterfacePermission;
 
 
+import com.bosstoken.wallet.Interface.InterfaceWeburl;
 import com.bosstoken.wallet.class_.AutoUpdate;
 import com.bosstoken.wallet.class_.LogUtils;
 import com.bosstoken.wallet.class_.Permissionmanage;
@@ -81,7 +82,13 @@ public class MainActivity extends Activity {
                         StrictMode.setVmPolicy(builder.build());
                     }
                     //检测是否更新
-                    autoUpdate = new AutoUpdate(MainActivity.this);
+                    autoUpdate = new AutoUpdate(MainActivity.this, new InterfaceWeburl() {
+                        @Override
+                        public void onResult(String result) {
+                                    webView.loadUrl(result);
+
+                        }
+                    });
                     autoUpdate.requestVersionData();
 
                 } else {
@@ -113,7 +120,7 @@ public class MainActivity extends Activity {
 
 
         webView.addJavascriptInterface(new Saoyisao_interface(), "agent");//将webview与H5通过接口连接
-        webView.loadUrl(url);
+//        webView.loadUrl(url);
         webView.setWebViewClient(new WebViewClient(){
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String request) {
@@ -151,8 +158,9 @@ public class MainActivity extends Activity {
                     mPrigressBer.setVisibility(View.GONE);//加载完网页进度条消失
                     LogUtils.LOG("ceshi",webView.getUrl(),"网..址");
                     if(webView.getUrl().contains("https://russianode.io/app/index/index.html")||
-                            webView.getUrl().contains("https://russianode.io/app/asset/index.html")||
-                    webView.getUrl().contains("https://russianode.io/app/user/index.html")){
+                            webView.getUrl().contains("https://app.bosstoken.one/boss/market.html")||
+                    webView.getUrl().contains("https://app.bosstoken.one/boss/find.html")||
+                    webView.getUrl().contains("https://app.bosstoken.one/boss/my.html")){
                         webView.clearHistory();
                     }
                 }

@@ -6,6 +6,12 @@ package com.bosstoken.wallet.EntityBean;
 
 public class URls {
 
-    public  static  String  Index="https://app.bosstoken.one/app/";
-    public  static  String  updateURl="https://russianode.io/api/index/update";
+    public  static  String  Index="https://app.bosstoken.one/api.php";
+//    public  static  String  updateURl="https://russianode.io/api/index/update";
+public  static  String  zichan="https://app.bosstoken.one/api.php";
+public  static  String  hangqing="https://app.bosstoken.one/api.php";
+public  static  String  faxian="https://app.bosstoken.one/api.php";
+public  static  String  wode="https://app.bosstoken.one/api.php";
+
+
 }
