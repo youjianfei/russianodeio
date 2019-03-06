@@ -124,9 +124,10 @@ public class AutoUpdate {
 
             @Override
             public void onError(int error) {
-                LogUtils.LOG("ceshi","c错误码"+error,"updataapp");
+
             }
-        }).Http(Index, activity, 0);
+        }).Http(Index+getVersionInfo()+"", activity, 0);
+        LogUtils.LOG("ceshi","主页网址"+Index+getVersionInfo(),"updataapp");
     }
     /**
      * 得到当前版本号

@@ -146,7 +146,7 @@ public class MainActivity extends Activity {
             @Override
             public void onReceivedHttpError(WebView view, WebResourceRequest request, WebResourceResponse errorResponse) {
                 super.onReceivedHttpError(view, request, errorResponse);
-                LogUtils.LOG("ceshi","aaaaaaaaa"+errorResponse,"网址aaaaaa错误");
+                LogUtils.LOG("ceshi","onReceivedHttpError~~~","mainactivity");
 
             }
         });
